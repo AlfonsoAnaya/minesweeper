@@ -1,3 +1,1 @@
-# paper-tracking
-# paper-tracking
-# minesweeper
+A simple minesweeper game in vanilla javascript
