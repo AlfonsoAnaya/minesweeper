@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+}
+
+h1,
+.scoreboard,
+.grid-container {
+    margin: 0 auto;
+}
+
+h1,
+.scoreboard {
+    width: 50%;
+    text-align: center;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+    height: 480px;
+}
+
+.grid-container div {
+    background-color: rgb(134, 134, 134);
+    border: 1px solid whitesmoke;
+    width: 28px;
+    height: 28px;
+}
+
+.bomb {
+    opacity: 1;
+}
+
+.valid,
+.bomb,
+.flagged {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(0, 0, 0, 1)
+}
+
+.checked {
+    opacity: .85;
+    color: rgb(0, 0, 0, 1)
+}
+
+.visible {
+    opacity: 1;
+    color: rgb(0, 0, 0, 1)
+}
+
+.one {
+    color: rgb(38, 38, 185);
+}
+.two {
+    color: rgb(179, 14, 14);
+}
+.three {
+    color: rgb(19, 100, 19);
+}
+.four {
+    color: rgb(102, 4, 102);
+}
+.five {
+    color: maroon;
+}
+.six {
+    color: rgb(41, 187, 172);
+}
+.seven {
+    color: black;
+}
+.eight {
+    color: whitesmoke;
+}
+
+.checked {
+    opacity: .8;
+}
