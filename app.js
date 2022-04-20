@@ -4,6 +4,10 @@ let flagAmount = 0
 let squares = []
 const grid = document.getElementById("grid-container")
 isGameOver = false
+const newGameBtn = document.getElementById("new-game-btn")
+
+//add event listener to new game button
+newGameBtn.addEventListener("click", newGame)
 
 //Create Board with 16 squares each side
 function createBoard () {
@@ -191,6 +195,13 @@ function checkForWin() {
             console.log("you've won!")
         } 
     }
+}
+
+function newGame() {
+    console.log("create new game")
+    grid.innerHTML = ""
+    isGameOver = false
+    createBoard()
 }
 
 
