@@ -32,10 +32,6 @@ h1,
     height: 28px;
 }
 
-.bomb {
-    opacity: .3;
-}
-
 .valid,
 .bomb,
 .flagged {
