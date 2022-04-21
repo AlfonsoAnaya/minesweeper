@@ -2,13 +2,20 @@ let gridWidth = 16
 let bombAmount = gridWidth * 2.5
 let flagAmount = 0
 let squares = []
+let isGameOver = false
+let timer = 0
+let clicks = 0
+let intervalTimer 
 const grid = document.getElementById("grid-container")
-isGameOver = false
 const newGameBtn = document.getElementById("new-game-btn")
+const flagsDisplay = document.getElementById("flags-left")
+const timerDisplay = document.getElementById("timer")
+
 
 //add event listener to new game button
 newGameBtn.addEventListener("click", newGame)
-
+flagsDisplay.textContent = bombAmount - flagAmount
+timerDisplay.textContent = timer
 //Create Board with 16 squares each side
 function createBoard () {
     // assign 40 randomly to squares in the grid (i.e, plant the bombs!)
@@ -73,25 +80,41 @@ function createBoard () {
 
 createBoard()
 
+function addSecond() {
+    if (clicks > 0 && !isGameOver)
+    timer++
+    timerDisplay.textContent = timer
+}
+
 //define right click function
 function addFlag(square) {
+    clicks++
+    if (clicks === 1) {
+        intervalTimer = setInterval(addSecond, 1000)
+    }
     if (isGameOver) return
     if (!square.classList.contains("checked") && (flagAmount < bombAmount)) {
         if (!square.classList.contains("flagged")) {
             square.classList.add("flagged")
             flagAmount++
+            flagsDisplay.textContent = bombAmount - flagAmount
             square.textContent = "🚩"
             checkForWin()
         } else {
             square.classList.remove("flagged")
             square.textContent = ""
             flagAmount--
+            flagsDisplay.textContent = bombAmount - flagAmount
         }
     }
 }
 
 // define "click" function
 function click(square) {
+    clicks++
+    if (clicks === 1) {
+        intervalTimer = setInterval(addSecond, 1000)
+    }
     let currentId = square.id
     // do nothing if game is over or if squre has been checked
     if (isGameOver) return
@@ -123,49 +146,50 @@ function checkSquare(square, currentId) {
     const isLeftEdge = currentId % gridWidth === 0
     const isRightEdge = (parseInt(currentId)+1)%gridWidth === 0                     
     setTimeout(() => {
-        //check E square
+        //check E square -- GOOD ---
         if (currentId > 0 && !isLeftEdge) {
             const newId = parseInt(currentId) - 1
             const newSquare = document.getElementById(newId)
             click(newSquare)
-        }
-        //check W square
+        } 
+        //check W square --- BAD ---
         if (currentId < 255 && !isRightEdge) {
             const newId = parseInt(currentId)+1
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check NW square
+        //check NW square --GOOD--
         if (currentId > gridWidth-1 && !isLeftEdge) {
             const newId = parseInt(currentId-(gridWidth+1))
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check NE square
+        //check NE square --GOOD--
         if (currentId > gridWidth-1 && !isRightEdge) {
             const newId = parseInt(currentId-(gridWidth-1))
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check N square
+        
+        //check N square --GOOD--
         if (currentId > gridWidth-1) {
             const newId = parseInt(currentId-(gridWidth))
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check SW square
+        //check SW square -- BAD --
         if (currentId < squares.length-gridWidth && !isLeftEdge) {
             const newId = parseInt(currentId)+(gridWidth-1)
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check SE square
+        //check SE square -- BAD --
         if (currentId < squares.length-gridWidth && !isRightEdge) {
             const newId = parseInt(currentId)+(gridWidth+1)
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check S square        
+        //check S square -- BAD ---        
         if (currentId < squares.length-gridWidth) {
             const newId = parseInt(currentId)+gridWidth
             const newSquare = document.getElementById(newId)
@@ -175,7 +199,7 @@ function checkSquare(square, currentId) {
 }
 
 function gameOver(square) {
-    console.log("game over")
+    alert("game over :(")
     isGameOver = true
     squares.forEach(square => {
         if (square.classList.contains("bomb")) {
@@ -192,15 +216,22 @@ function checkForWin() {
             console.log(matches)
         }
         if (matches===bombAmount) {
-            console.log("you've won!")
+            alert("you won! :)") 
+            return
         } 
     }
 }
 
 function newGame() {
-    console.log("create new game")
     grid.innerHTML = ""
     isGameOver = false
+    squares = []
+    flagAmount = 0
+    clicks = 0
+    timer = 0
+    flagsDisplay.textContent = bombAmount - flagAmount
+    timerDisplay.textContent = timer
+    clearInterval(intervalTimer)
     createBoard()
 }
 
