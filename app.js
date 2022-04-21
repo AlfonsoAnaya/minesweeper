@@ -14,8 +14,8 @@ const timerDisplay = document.getElementById("timer")
 
 //add event listener to new game button
 newGameBtn.addEventListener("click", newGame)
-flagsDisplay.textContent = bombAmount - flagAmount
-timerDisplay.textContent = timer
+flagsDisplay.textContent = `🚩 ${bombAmount - flagAmount}`
+timerDisplay.textContent = `⏱️ ${timer}`
 //Create Board with 16 squares each side
 function createBoard () {
     // assign 40 randomly to squares in the grid (i.e, plant the bombs!)
@@ -83,7 +83,7 @@ createBoard()
 function addSecond() {
     if (clicks > 0 && !isGameOver)
     timer++
-    timerDisplay.textContent = timer
+    timerDisplay.textContent = `⏱️ ${timer}`
 }
 
 //define right click function
@@ -97,14 +97,14 @@ function addFlag(square) {
         if (!square.classList.contains("flagged")) {
             square.classList.add("flagged")
             flagAmount++
-            flagsDisplay.textContent = bombAmount - flagAmount
+            flagsDisplay.textContent = `🚩 ${bombAmount - flagAmount}`
             square.textContent = "🚩"
             checkForWin()
         } else {
             square.classList.remove("flagged")
             square.textContent = ""
             flagAmount--
-            flagsDisplay.textContent = bombAmount - flagAmount
+            flagsDisplay.textContent = `🚩 ${bombAmount - flagAmount}`
         }
     }
 }
@@ -199,7 +199,6 @@ function checkSquare(square, currentId) {
 }
 
 function gameOver(square) {
-    alert("game over :(")
     isGameOver = true
     squares.forEach(square => {
         if (square.classList.contains("bomb")) {
@@ -229,8 +228,8 @@ function newGame() {
     flagAmount = 0
     clicks = 0
     timer = 0
-    flagsDisplay.textContent = bombAmount - flagAmount
-    timerDisplay.textContent = timer
+    flagsDisplay.textContent = `🚩 ${bombAmount - flagAmount}`
+    timerDisplay.textContent = `⏱️ ${timer}`
     clearInterval(intervalTimer)
     createBoard()
 }
