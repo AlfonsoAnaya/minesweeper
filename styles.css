@@ -52,7 +52,8 @@ h1,
     background-color: var(--color-btn);
     color: var(--color-white);
     font-weight: 700;
-    font-size: 1em
+    font-size: 1em;
+    transition: ease-in .15s;
 }
 
 .new-game-btn:hover {
@@ -60,6 +61,7 @@ h1,
     color: var(--color-btn);
     background-color: var(--color-white);
     border: solid 2px var(--color-btn);
+    transform: scale(1.1)
 }
 
 .grid-container {
