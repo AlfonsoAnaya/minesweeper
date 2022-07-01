@@ -73,8 +73,7 @@ h1,
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    width: 480px;
-    height: 480px;
+    width: 416px;
     border: var(--color-primary) solid 15px;
     border-radius: .6em;
     background-color: var(--color-primary);
@@ -85,8 +84,8 @@ h1,
     background-color: rgb(151, 151, 151);
     border: 1px solid var(--color-primary);
     border-radius: 2.5px;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     font-family: var(--font-secondary);
     font-size: 1.15em;
     font-weight: 600;
