@@ -12,8 +12,8 @@ body {
     margin: 0;
     background-color: var(--color-white);
     display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: 100vh;
+    grid-template-rows:  12% 8% 1fr auto;
+    min-height: 100vh;
 }
 
 h1 {
@@ -78,6 +78,7 @@ h1,
     border-radius: .6em;
     background-color: var(--color-primary);
     margin-bottom: 2em;
+    align-self: start;
 }
 
 .grid-container div {
