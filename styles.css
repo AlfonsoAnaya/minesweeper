@@ -73,12 +73,13 @@ h1,
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    width: 416px;
+    width: 428px;
     border: var(--color-primary) solid 15px;
     border-radius: .6em;
     background-color: var(--color-primary);
     margin-bottom: 2em;
     align-self: start;
+    justify-content: center;
 }
 
 .grid-container div {
