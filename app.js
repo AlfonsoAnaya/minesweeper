@@ -20,7 +20,7 @@ timerDisplay.textContent = `⏱️ ${timer}`
 function createBoard () {
     // assign 40 randomly to squares in the grid (i.e, plant the bombs!)
     const bombsArray = Array(bombAmount).fill("bomb");
-    const emptyArray = Array(gridWidth * gridWidth - bombAmount).fill("valid")
+    const emptyArray = Array(gridWidth * gridWidth - bombAmount).fill("valid");
     const gameArray = emptyArray.concat(bombsArray);
         /* since the Sort method uses positive or negative values <0 or >0 to 
         determine the order of elements, we can use math.random -.5 to determine
@@ -38,6 +38,7 @@ function createBoard () {
         square.classList.add(gameArray[i])
         grid.appendChild(square);
         squares.push(square);
+        
         // NORMAL CLICK  set up an event listener for a click on each square in the grid - on click perform function "clicked"
         square.addEventListener("click", function(e) {
             click(square)
