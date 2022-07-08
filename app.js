@@ -213,7 +213,6 @@ function checkForWin() {
     for (let i=0; i < squares.length; i++) {
         if(squares[i].classList.contains("flagged") && squares[i].classList.contains("bomb")) {
             matches++
-            console.log(matches)
         }
         if (matches===bombAmount) {
             alert("you won! :)") 
