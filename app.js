@@ -172,6 +172,7 @@ function checkSquare(square, currentId) {
             click(newSquare)
         }
         
+        
         //check N square --GOOD--
         if (currentId > gridWidth-1) {
             const newId = parseInt(currentId-(gridWidth))
