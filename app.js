@@ -49,7 +49,6 @@ function createBoard () {
             e.preventDefault();
             addFlag(square)
         }
-        
     }
    
     //create numbers in valid square adjacent to bombs
