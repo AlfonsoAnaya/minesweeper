@@ -103,7 +103,8 @@ h1,
     color: rgb(0, 0, 0, 1)
 }
 
-.valid:hover {
+.valid:hover,
+.bomb:hover {
     opacity: .6;
 }
 
