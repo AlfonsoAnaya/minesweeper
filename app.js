@@ -146,25 +146,25 @@ function checkSquare(square, currentId) {
     const isLeftEdge = currentId % gridWidth === 0
     const isRightEdge = (parseInt(currentId)+1)%gridWidth === 0                     
     setTimeout(() => {
-        //check E square -- GOOD ---
+        //check E square 
         if (currentId > 0 && !isLeftEdge) {
             const newId = parseInt(currentId) - 1
             const newSquare = document.getElementById(newId)
             click(newSquare)
         } 
-        //check W square --- BAD ---
+        //check W square 
         if (currentId < 255 && !isRightEdge) {
             const newId = parseInt(currentId)+1
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check NW square --GOOD--
+        //check NW square 
         if (currentId > gridWidth-1 && !isLeftEdge) {
             const newId = parseInt(currentId-(gridWidth+1))
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check NE square --GOOD--
+        //check NE square 
         if (currentId > gridWidth-1 && !isRightEdge) {
             const newId = parseInt(currentId-(gridWidth-1))
             const newSquare = document.getElementById(newId)
@@ -172,25 +172,25 @@ function checkSquare(square, currentId) {
         }
         
         
-        //check N square --GOOD--
+        //check N square 
         if (currentId > gridWidth-1) {
             const newId = parseInt(currentId-(gridWidth))
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check SW square -- BAD --
+        //check SW square 
         if (currentId < squares.length-gridWidth && !isLeftEdge) {
             const newId = parseInt(currentId)+(gridWidth-1)
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check SE square -- BAD --
+        //check SE square 
         if (currentId < squares.length-gridWidth && !isRightEdge) {
             const newId = parseInt(currentId)+(gridWidth+1)
             const newSquare = document.getElementById(newId)
             click(newSquare)
         }
-        //check S square -- BAD ---        
+        //check S square       
         if (currentId < squares.length-gridWidth) {
             const newId = parseInt(currentId)+gridWidth
             const newSquare = document.getElementById(newId)
@@ -235,11 +235,3 @@ function newGame() {
 }
 
 
-/* set up an event listener for a right-click on each square in the grid*/
-
-/* define "right-clicked" function*/
-
-
-/* set up an event listener for new game in the new game button */
-    /* clean the grid */
-    /*redeploy function to assign the 40 bombs*/
